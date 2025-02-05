@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes Benz C300</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3e3d1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            width: 350px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .car-image {
+            width: 99%;
+            height: auto;
+            
+        }
+        .details {
+            background-color: #2f8f22;
+            padding: 20px;
+            color: rgb(247, 223, 7);
+        }
+        
+        h2 {
+            
+        }
+        .info {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .stars {
+            color: yellow;
+            font-size: 16px;
+        }
+        .color-options {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .color {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .color:hover, .selected {
+            border: 2px solid white;
+        }
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: lightgray;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        .cart-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .cart-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img id="carImage" src="https://www.mercedes-benz.com/en/vehicles/passenger-cars/c-class/_jcr_content/image/MQ6-0-image-20220128135245/00-mercedes-benz-c-class-saloon-v-206-4matic-2022-kv-3400x1440.jpeg" 
+         alt="Mercedes Benz C300" class="car-image">
+    <div class="details">
+        <span class="tag">CAR</span>
+        <h2>Mercedes Benz C300 2022</h2>
+        <p class="info">🚗 Mileage: 4,000 miles</p>
+        <p class="info">⛽ Fuel: 25mpg</p>
+        <p class="info">🛡️ Safety: <span class="stars">⭐⭐⭐⭐⭐</span></p>
+
+        <p>Pick a color:</p>
+        <div class="color-options">
+            <div class="color" style="background-color: red;" onclick="changeColor('red', this)"></div>
+            <div class="color" style="background-color: black;" onclick="changeColor('black', this)"></div>
+            <div class="color" style="background-color: white; border: 1px solid gray;" onclick="changeColor('white', this)"></div>
+        </div>
+
+        <p class="price"><span id="price">$134,450</span> <span class="old-price">$140,500</span></p>
+
+        <button class="cart-btn">🛒 Add to Cart</button>
+    </div>
+</div>
+
+<script>
+    function changeColor(color, element) {
+        const carImage = document.getElementById('carImage');
+
+        document.querySelectorAll('.color').forEach(color => color.classList.remove('selected'));
+
+        element.classList.add('selected');
+
+        if (color === 'red') {
+            carImage.src = "new-c-class.webp"; 
+        } else if (color === 'black') {
+            carImage.src = "97af73b7-73d6-5a52-bab0-132450450000.avif"; 
+            // Replace with black car image if available
+        } else if (color === 'white') {
+            carImage.src = " vossen-c-class-new-gen-15.jpg"; 
+            // Replace with white car image if available
+        }
+    }
+</script>
+
+</body>
+</html>
